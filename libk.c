@@ -1,69 +1,15 @@
-/**
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- *
- * Copyright 2020, Anuradha Weeraman
- *
- * C++ version 0.4 char* style "itoa", Copyright Lukás Chmela
- * Released under GPLv3.
- * http://www.strudel.org.uk/itoa/
- */
+// Treba tu dorobit to MEMCPY a aj dalsie
+// v ODYSSEY ma "putchar" v Libk.c ale je to iba to iste ako to "printc" co ma v tty.c
+// a ja mam na to iba funkciu putchar, ktora je v tty.c
 
 #include "libk.h"
 #include "tty.h"
 
-
-//pridane
-void* memcpy(void * restrict d, const void * restrict s, size_t n) {
-  char *dest = d;
-  const char *src = s;
-
-  for (size_t i = 0; i < n; i++) {
-    dest[i] = src[i];
-  }
-
-  return dest;
-}
-
-//tiez pridane
-void* memset(void *s, int c, size_t n) {
-  unsigned char *ch = s;
-  for (size_t i = 0; i < n; i++)
-    ch[i] = (char) c;
-  return s;
-}
-
-//upravene
-size_t strnlen(const char *str, size_t maxlen) {
+size_t strlen(char *str) {
   size_t sz = 0;
-  if (str == NULL) return 0;
-  while (str[sz] != '\0' && sz++ < maxlen-1);
+  while (str[sz++] != '\0');
   return sz;
 }
-
-//pridane
-char* strncpy(char * restrict dest, const char * restrict src, size_t n) {
-  size_t i = 0;
-
-  for (; src[i] != '\0' && i < n; i++)
-    dest[i] = src[i];
-
-  for (; i < n; i++)
-    dest[i] = '\0';
-
-  return dest;
-}
-
 
 void itoa (char *buf, int base, int d)
     {
@@ -140,6 +86,16 @@ void printf (const char *format, ...)
 
           switch (c)
             {
+            case 'c':
+            	itoa (buf, c, *((int *) arg++));
+        	p = buf;
+        	if (p == 0x0A) {
+          	putchar('.');  // Replace newline with '.'
+        	} else {
+          	putchar(p);    // Otherwise, print the character normally
+        	}
+        	break;
+            
             case 'd':
             case 'u':
             case 'x':
@@ -168,3 +124,5 @@ void printf (const char *format, ...)
         }
     }
 }
+
+

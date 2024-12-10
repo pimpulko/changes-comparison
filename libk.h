@@ -15,20 +15,13 @@
  * Copyright 2020, Anuradha Weeraman
  */
 
-#ifndef LIBK_H
-#define LIBK_H
+#ifndef STRINGS_H
+#define STRINGS_H
 
-#include <stdarg.h>
-#include <stdint.h>
-#include <stddef.h>
-#include "tty.h"
 #include "types.h"
 
-void*  memcpy(void * restrict dest, const void * restrict src, size_t n);
-void*  memset(void *s, int c, size_t n);
-char*  strncpy(char * restrict dest, const char * restrict src, size_t n);
-size_t strnlen(const char *s, size_t maxlen);
 void  itoa(char *buf, int base, int d);
+size_t strlen(char *str);
 void   printf(const char *format, ...);
 
 #endif

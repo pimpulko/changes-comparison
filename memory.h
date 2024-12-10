@@ -2,22 +2,15 @@
 #define MEMORY_H
 
 #include <stdint.h>
-#include <stddef.h>
 
 #define MAX_REGION_TYPES  6
 #define MAX_REGIONS       100
 
-typedef struct basic_meminfo {
-  size_t lower;
-  size_t upper;
-  size_t size;
-} basic_meminfo_t;
-
 typedef struct memory_region_struct {
-  size_t start;
-  size_t end;
-  size_t len;
-  size_t type;
+  uint32_t start;
+  uint32_t end;
+  uint32_t len;
+  uint32_t type;
 } memory_region_t;
 
 union mem_ptr {
@@ -47,12 +40,11 @@ union mem_ptr {
 } __attribute__((packed));
 typedef union mem_ptr mem_ptr_t;
 
-void set_basic_meminfo(size_t lower, size_t upper);
-void add_mem_region(int idx, size_t start, size_t len, size_t type);
+void add_mem_region(int idx, uint32_t start, uint32_t len, uint32_t type);
 memory_region_t get_mem_region(int idx);
 void set_num_mem_regions(int num);
 void print_mem_regions();
-void peek(size_t addr, int count);
+void peek(uint32_t addr, int count);
 
 #endif
 

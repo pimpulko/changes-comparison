@@ -1,7 +1,0 @@
-boothdr - prerobene
-io -asi ani netreba prerabat
-kernel - tiez nejdem zatial prerabat
-libk - prerobene
-memory - malo by byt prerobene
-serial.c - asi sa nepojde prerabat
-tty - tam asi tiez niako nic nemenit

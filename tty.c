@@ -1,6 +1,5 @@
-#include <stdarg.h>
 #include <stddef.h>
-#include "io.h"
+#include "multiboot.h"
 #include "tty.h"
 #include "serial.h"
 
