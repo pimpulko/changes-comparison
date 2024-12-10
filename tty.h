@@ -1,9 +1,10 @@
-#ifndef PRINT_H
-#define PRINT_H
+#ifndef TTY_H
+#define TTY_H
 
 //#include "types.h"
+#include <stdint.h>
 #include "serial.h"
-#include "multiboot.h"
+//#include "multiboot.h"
 
 
 #define COLUMNS                 80
