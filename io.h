@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-void outb(uint16_t port, uint8_t val);
-uint8_t inb(uint16_t port);
+void outb(__uint16_t port, __uint8_t val);
+__uint8_t inb(__uint16_t port);
 
 #endif

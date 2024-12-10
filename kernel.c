@@ -2,6 +2,8 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include "memory.h"
+#include "boothdr.h"
 #include "multiboot.h"
 #include "tty.h"
 #include "serial.h"
@@ -9,8 +11,8 @@
 #include "io.h"
 #include "hofno.h"
 
-#include "boothdr.h"
-#include "memory.h"
+#include "test.h"
+#include "flatmm.h"
 
 /* Global variable to store Multiboot information */
 multiboot_info_t *mbi;
@@ -243,6 +245,12 @@ void cmain(unsigned long magic, unsigned long addr) {
 
     // A toto je ten kurzor a to su suradnice na ktorych sa zobrazi
     kurzor2(12, 12);
+	
+	//TOTO JE TERAZ PRIDANE
+	init_flatmm();
+	
+	//A TOTO JE TIEZ PRIDANE
+	run_tests();
 
     printf("Nas nezastavia ziadne hradne muri\n");
 

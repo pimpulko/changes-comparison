@@ -1,4 +1,4 @@
-OBJECTS = boot.o tty.o serial.o io.o libk.o memory.o boothdr.o kernel.o
+OBJECTS = boot.o tty.o serial.o io.o libk.o memory.o boothdr.o test.o flatmm.o kernel.o
 
 .PHONY: run run-cd grub copy clean
 	

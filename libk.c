@@ -44,7 +44,7 @@ void* memset(void *s, int c, size_t n) {
 }
 
 //upravene
-ize_t strnlen(const char *str, size_t maxlen) {
+size_t strnlen(const char *str, size_t maxlen) {
   size_t sz = 0;
   if (str == NULL) return 0;
   while (str[sz] != '\0' && sz++ < maxlen-1);
